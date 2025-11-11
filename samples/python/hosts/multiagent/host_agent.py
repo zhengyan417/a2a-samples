@@ -221,6 +221,7 @@ Current agent: {current_agent['active_agent']}
             # Raise error for failure
             raise ValueError(f'Agent {agent_name} task {task.id} failed')
         response = []
+        state['task_id'] = None
         if task.status.message:
             # Assume the information is in the task message.
             if ts := self.timestamp_extension.get_timestamp(
